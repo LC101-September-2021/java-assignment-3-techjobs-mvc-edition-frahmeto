@@ -31,11 +31,12 @@ public class SearchController {
             jobs = JobData.findAll();
         }else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
-           // model.addAttribute("title", "Jobs with " + searchType + ":" + searchTerm);
+//            model.addAttribute("title", "Jobs with " + searchType + ":" + searchTerm);
         }
 
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("title", "Jobs with " + ListController.columnChoices.get(searchType) + ":" + searchTerm);
 
         return "search";
     }
